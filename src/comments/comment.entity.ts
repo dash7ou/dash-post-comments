@@ -15,7 +15,7 @@ export class Comment extends Model<Post> {
     type: DataType.TEXT,
     allowNull: false,
   })
-  body: string;
+  content: string;
 
   @ForeignKey(() => User)
   @Column({
