@@ -1,7 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
-import { databaseConfig } from './database.config';
 import { User } from 'src/users/user.entity';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const databaseConfig = require('./database.config');
 
 export const databaseProviders = [
   {
@@ -22,7 +23,7 @@ export const databaseProviders = [
           config = databaseConfig.development;
       }
       const sequelize = new Sequelize(config);
-      sequelize.addModels(['User']);
+      sequelize.addModels([User]);
       //   await sequelize.sync();
       return sequelize;
     },

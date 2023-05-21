@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { UserDto } from './dto/user.dto';
 import { USER_REPOSITORY } from 'src/core/constants';
 import { User } from './user.entity';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -9,7 +9,7 @@ export class UsersService {
     @Inject(USER_REPOSITORY) private readonly userRepository: typeof User,
   ) {}
 
-  create(user: UserDto) {
+  create(user: CreateUserDto) {
     return this.userRepository.create(user);
   }
 
