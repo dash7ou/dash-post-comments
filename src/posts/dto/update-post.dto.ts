@@ -1,13 +1,12 @@
-import { IsNotEmpty, MinLength, IsOptional } from 'class-validator';
+import { IsNotEmpty, MinLength, IsOptional, IsString } from 'class-validator';
 
 
 export class UpdatePostDTO {
-  @IsNotEmpty()
   @MinLength(4)
   @IsOptional()
   readonly title: string;
 
-  @IsNotEmpty()
   @IsOptional()
+  @IsString()
   readonly body: string;
 }

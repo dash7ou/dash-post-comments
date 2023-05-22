@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Post,
-  UseGuards,
-  Request,
-  Body,
-  Patch,
-  Param,
-} from '@nestjs/common';
+import { Controller, Post, UseGuards, Request, Body } from '@nestjs/common';
 import { CommentsService } from './comments.service';
 import { AuthGuard } from '@nestjs/passport';
 import { CreateCommentDTO } from './dto/create-comment.dto';

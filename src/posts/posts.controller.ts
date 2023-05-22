@@ -6,15 +6,23 @@ import {
   Body,
   Patch,
   Param,
+  Get,
+  Query,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CreatePostDTO } from './dto/create-post.dto';
 import { PostsService } from './posts.service';
 import { UpdatePostDTO } from './dto/update-post.dto';
+import { GetPostDTO } from './dto/get-post.dto';
 
 @Controller('posts')
 export class PostsController {
   constructor(private postServ: PostsService) {}
+
+  @Get()
+  async getAll(@Query() query: GetPostDTO): Promise<any> {
+    return await this.postServ.getAll(query);
+  }
 
   @UseGuards(AuthGuard('jwt'))
   @Post()
